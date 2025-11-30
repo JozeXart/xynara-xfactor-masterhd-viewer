@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xynara Xfactor — Secure Master HD</title>
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      user-select: none;
-      -webkit-user-drag: none;
-      font-family: system-ui, sans-serif;
-    }
-    .container {
-      position: relative;
-      max-width: 95vw;
-      max-height: 95vh;
-    }
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      pointer-events: none;
-      -webkit-user-drag: none;
-    }
-    .caption {
-      position: absolute;
-      right: 12px;
-      bottom: 10px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.65);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xynara Xfactor — Master HD Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            pointer-events: none;
+            user-select: none;
+        }
+        .label {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+            opacity: 0.6;
+            font-size: 16px;
+        }
+    </style>
+
+    <!-- BLOCK RIGHT CLICK + DRAG + SAVE -->
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('dragstart', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode === 123) return false;
+            if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) return false;
+            if (e.ctrlKey && (e.keyCode === 83 || e.keyCode === 80)) return false;
+        };
+    </script>
 </head>
+
 <body>
-  <div class="container">
-    <img id="artwork" alt="Secure HD artwork">
-    <div class="caption">Xynara Xfactor — Secure Master HD view only</div>
-  </div>
-
-  <script>
-    const IMAGE_URL = "https://gateway.pinata.cloud/ipfs/bafybeicnhte2ip3acm54jtreyivkhfnrngvr3vf3mzadysuq4s65vxgvv4";
-    document.getElementById("artwork").src = IMAGE_URL;
-
-    window.addEventListener("contextmenu", e => e.preventDefault());
-    window.addEventListener("dragstart", e => e.preventDefault());
-    window.addEventListener("keydown", e => {
-      if ((e.ctrlKey || e.metaKey) && ["s","S","u","U","p","P"].includes(e.key))
-        e.preventDefault();
-    });
-  </script>
+    <img 
+        src="https://app.pinata.cloud/ipfs/bafybeicnhte2ip3acm54jtreyivkhfnrngvr3vf3mzadysuq4s65vxgvv4" 
+        alt="Xynara Xfactor Master HD">
+    <div class="label">Xynara Xfactor — Secure Master HD view only</div>
 </body>
 </html>
