@@ -14,41 +14,50 @@
             height: 100vh;
             user-select: none;
             -webkit-user-drag: none;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .container {
+            position: relative;
+            max-width: 95vw;
+            max-height: 95vh;
         }
         img {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             pointer-events: none;
+            -webkit-user-drag: none;
             user-select: none;
         }
         .label {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            color: white;
-            font-family: Arial, sans-serif;
-            opacity: 0.6;
-            font-size: 16px;
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
         }
     </style>
 
-    <!-- BLOCK RIGHT CLICK + DRAG + SAVE -->
     <script>
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('dragstart', event => event.preventDefault());
-        document.onkeydown = function(e) {
-            if (e.keyCode === 123) return false;
-            if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) return false;
-            if (e.ctrlKey && (e.keyCode === 83 || e.keyCode === 80)) return false;
-        };
+        // Bloquer clic droit
+        window.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Bloquer quelques raccourcis (enregistrer, inspecter…)
+        window.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['s','S','p','P','u','U'].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+        window.addEventListener('dragstart', e => e.preventDefault());
     </script>
 </head>
-
 <body>
-    <img 
-        src="https://app.pinata.cloud/ipfs/bafybeicnhte2ip3acm54jtreyivkhfnrngvr3vf3mzadysuq4s65vxgvv4" 
-        alt="Xynara Xfactor Master HD">
-    <div class="label">Xynara Xfactor — Secure Master HD view only</div>
+    <div class="container">
+        <img
+            src="https://gateway.pinata.cloud/ipfs/bafybeicnhte2ip3acm54jtreyivkhfnrngvr3vf3mzadysuq4s65vxgvv4"
+            alt="Xynara Xfactor Master HD by JozeXart">
+        <div class="label">Xynara Xfactor — Secure Master HD view only</div>
+    </div>
 </body>
 </html>
