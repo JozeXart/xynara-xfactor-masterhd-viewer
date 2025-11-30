@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xynara Xfactor — Master HD</title>
+<title>Xynara Xfactor — Secure Master HD</title>
 
 <style>
   body {
@@ -16,8 +16,6 @@
   }
 
   .frame {
-    width: 40vw;
-    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,35 +23,35 @@
   }
 
   img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 1024px;
+    max-width: 95vw;
+    max-height: 95vh;
     object-fit: contain;
-    pointer-events: none; /* empêche clic droit */
+    pointer-events: none;
     user-select: none;
+    -webkit-user-drag: none;
   }
 
   .wm {
     position: absolute;
-    bottom: 8px;
+    bottom: 10px;
     right: 16px;
     color: white;
-    opacity: 0.8;
-    font-family: Arial, sans-serif;
+    opacity: 0.85;
     font-size: 14px;
+    font-family: Arial, sans-serif;
   }
 </style>
 
 <script>
-  // blocage clic droit
-  document.addEventListener("contextmenu", event => event.preventDefault());
+  document.addEventListener("contextmenu", e => e.preventDefault());
 </script>
 
 </head>
-
 <body>
-  <div class="frame">
-    <img src="https://gateway.pinata.cloud/ipfs/bafybeicnhte2ip3acm54jtreyivkhfnrngvr3vf3mzadysuq4s65vxgvv4" alt="Xynara Xfactor">
-    <div class="wm">Xynara Xfactor — Secure Master HD view only</div>
-  </div>
+<div class="frame">
+  <img src="https://gateway.pinata.cloud/ipfs/bafybeicnhte2ip3acm54jtreyivkhfnrngvr3vf3mzadysuq4s65vxgvv4" alt="Xynara Xfactor">
+  <div class="wm">Xynara Xfactor — Secure Master HD view only</div>
+</div>
 </body>
 </html>
